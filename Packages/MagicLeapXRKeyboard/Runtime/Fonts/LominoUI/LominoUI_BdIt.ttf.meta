@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 5f1cb97cb180c89488f0add7f9937470
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lomino UI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 62d07a804e174964c87b4b95d2a4a389, type: 3}
+  - {fileID: 12800000, guid: 521313e7c086f394492274fddcdc1b2a, type: 3}
+  - {fileID: 12800000, guid: c799ab002ff2b4044a7dfd0a62dc2a9c, type: 3}
+  - {fileID: 12800000, guid: 1b4390342a02ab245860fd376a1003c3, type: 3}
+  - {fileID: 12800000, guid: 4ff8adf7edad1454f99881a1d26d2c23, type: 3}
+  - {fileID: 12800000, guid: 744271a20cddb1e4ab97a26936352f68, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

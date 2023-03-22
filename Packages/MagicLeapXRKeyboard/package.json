@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "description": "XR Keyboard that works with XR Interaction Toolkit",
+  "displayName": "Magic Leap XR Keyboard",
+  "keywords": [
+    "MagicLeap",
+    "Magic",
+    "Leap",
+    "Keyboard"
+  ],
+  "contributors": [
+    {
+      "name": "Adrian Babilinski",
+      "email": "ababilinski@magicleap.com",
+      "url": "https://forum.magicleap.cloud/u/ababilinski/"
+    }
+  ],
+  "category": "XR",
+  "license": "https://www.magicleap.com/software-license-agreement-ml2",
+  "name": "com.magicleap.xrkeyboard",
+  "unity": "2022.2",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.xr.interaction.toolkit": "2.2.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "com.browar.editor-toolbox",
+  "displayName": "Editor Toolbox",
+  "version": "0.12.0",
+  "unity": "2018.1",
+  "description": "Tools, custom attributes, drawers, hierarchy overlay, and other extensions for the Unity Editor.",
+  "keywords": [
+    "editor",
+    "attribute",
+    "inspector",
+    "hierarchy",
+    "folders"
+  ],
+  "category": "editor extensions",
+  "dependencies": {
+	"com.unity.editorcoroutines": "1.0.0"
+  },
+  "author": {
+    "name": "BroWar Collective",
+    "email": "milosz.matkowski96@gmail.com",
+    "url": "https://github.com/arimger"
+  }
+}
