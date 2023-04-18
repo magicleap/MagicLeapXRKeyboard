@@ -2,12 +2,8 @@
 
 A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in `Assets/XRKeyboard/Scenes/XRKeyboardExample.unity`
 
-## Authors:
-```
-"name": "Adrian Babilinski",
-"email": "ababilinski@magicleap.com",
-"url": "https://forum.magicleap.cloud/u/ababilinski/"
-```
+
+
 ## Getting Started
 
 ### Keyboard

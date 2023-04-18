@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using MagicLeap.XRKeyboard.Component;
@@ -152,31 +153,40 @@ namespace MagicLeap.XRKeyboard
      
 
         [EasyButtons.Button]
+        // ReSharper disable once UnusedMember.Global
         public void LoadFromJSON()
         {
-            if (File.Exists(_saveAndLoadPath))
+          
+            if (!File.Exists(_saveAndLoadPath))
             {
-                string json = File.ReadAllText(_saveAndLoadPath);
-                JsonUtility.FromJsonOverwrite(json, keyboardLayoutData);
+             
+                var streamingAssetsPath = Path.Combine(Application.streamingAssetsPath, _saveAndLoadPath);
+                if (File.Exists(streamingAssetsPath))
+                {
+                    _saveAndLoadPath = Path.GetFullPath(streamingAssetsPath).Replace("\\", "/");
+                }
+                else 
+                {
+                    _saveAndLoadPath = Path.GetFullPath(Path.Combine(Application.dataPath, _saveAndLoadPath)).Replace("\\","/");
+                    
+                }
             }
-            else
-            {
-                Debug.LogError("Path does not exist for keymap file.");
-            }
-
+            
+           
 
             keyboardLayoutData.ValidateKeyMap();
         }
-
+#if UNITY_EDITOR
         [EasyButtons.Button]
-        public void WriteNewJSON()
+        // ReSharper disable once UnusedMember.Local
+        private void WriteNewJSON()
         {
             if (keyboardLayoutData.Rows.Count == 0 || keyboardLayoutData.Rows[0].Keys.Count == 0)
             {
-                Debug.LogWarning("No map to write");
+                Debug.LogError("No map to write.");
                 return;
             }
-
+            
             for (var i = 0; i < keyboardLayoutData.Rows.Count; i++)
             {
                 var row = keyboardLayoutData.Rows[i];
@@ -191,21 +201,94 @@ namespace MagicLeap.XRKeyboard
                 }
             }
 
-            
-            var directory = Path.Combine(Application.streamingAssetsPath, "XRKeyboard/AndroidKeyMaps").Replace("\\", "/");
-            var filePath = Path.Combine(directory, keyboardLayoutData.Description + ".json").Replace("\\", "/");
-            _saveAndLoadPath = filePath;
-            string jsonMap = JsonUtility.ToJson(keyboardLayoutData, true);
-
-
-            if (!Directory.Exists(directory))
+            if (string.IsNullOrWhiteSpace(_saveAndLoadPath))
             {
-                Directory.CreateDirectory(directory);
+                _saveAndLoadPath = Path.Combine(Application.dataPath, $"Keymaps/{keyboardLayoutData.Description}.json").Replace("\\", "/");
             }
 
-            File.WriteAllText(filePath, jsonMap);
-            Debug.Log($"Wrote KeyMap to [{filePath}]\njson output:\n{jsonMap.ToString()}");
+            _saveAndLoadPath = _saveAndLoadPath.Replace("\\", "/");
+            var dataPath = Application.dataPath.Replace("\\", "/");
+            string jsonMap = JsonUtility.ToJson(keyboardLayoutData, true);
+
+            if (!_saveAndLoadPath.Contains(".json"))
+            {
+                var fixAndContinue = UnityEditor.EditorUtility.DisplayDialog($"Incorrect file format",
+                                                                        $"The path \"{_saveAndLoadPath}\"does not contain a '.json' extension. "
+                                                                    + $"Do you want to correct the name to \"{_saveAndLoadPath}/{keyboardLayoutData.Description}.json\"?"
+                                                                    , "Yes", "Cancel");
+                if (!fixAndContinue)
+                {
+                    return;
+                }
+            }
+
+
+    
+            var savePath = _saveAndLoadPath;
+            if (!Path.IsPathRooted(savePath))
+            {
+                savePath = Path.GetFullPath(Path.Combine(dataPath, savePath)).Replace("\\", "/");
+           
+                if (!Directory.Exists(Path.GetDirectoryName(savePath)))
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(savePath));
+                }
+            }
+            
+            if (Path.IsPathRooted(savePath) && !savePath.Contains(dataPath))
+            {
+
+       
+                var writeFile = UnityEditor.EditorUtility.DisplayDialog($"File path outside of project folder",
+                                                                            $"The path \"{savePath}\"is outside of the project folder. Do you still want to write to it?"
+                                                                            , "Yes", "Cancel");
+                if (!writeFile)
+                {
+                    return;
+                }
+            }
+
+
+            if (File.Exists(savePath))
+            {
+               
+               
+                var choice = UnityEditor.EditorUtility.DisplayDialogComplex($"\"{Path.GetFileName(savePath)}\"already exists. Do you want to replace it?",
+                                                                            $"A file with the same name already exists in directory: \"{Path.GetDirectoryName(savePath)}\". "
+                                                                        + $"Replacing it will overwrite its current contents. This action cannot be undone", "Replace", "Cancel", "Keep Both");
+                if (choice == 0)
+                {
+                    //Replace
+
+                    File.WriteAllText(savePath, jsonMap);
+                }
+
+                else if (choice == 1)
+                {
+                    //Cancel
+                    return;
+                }
+                else if (choice == 2)
+                {
+                    //Keep Both
+                    var newPath = PathUtility.GetUniqueEnumeratedFileName(Path.GetDirectoryName(savePath), ".json", Path.GetFileNameWithoutExtension(savePath));
+                    File.WriteAllText(savePath, newPath);
+                 
+                }
+
+                return;
+            }
+
+        
+            
+            File.WriteAllText(savePath, jsonMap);
+            Debug.Log($"Wrote KeyMap to [{savePath}]\njson output:\n{jsonMap.ToString()}");
+            _saveAndLoadPath = _saveAndLoadPath.Replace(dataPath + "/", "");
+
+
         }
+#endif
+
 
     }
 }

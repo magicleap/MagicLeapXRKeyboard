@@ -1,0 +1,1069 @@
+{
+    "LayoutId": "Letters",
+    "Description": "Default QWERTY",
+    "Rows": [
+        {
+            "Size": 1.0,
+            "Spacing": 0.0,
+            "VerticalGap": 100,
+            "PreferredKeySize": {
+                "x": 300.0,
+                "y": 300.0
+            },
+            "ShowAccentHint": false,
+            "Keys": [
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "1",
+                    "KeyCode": "1",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "¹",
+                        "½",
+                        "⅓",
+                        "⅓",
+                        "¼",
+                        "⅕",
+                        "⅙",
+                        "⅐",
+                        "⅛",
+                        "⅑",
+                        "⅒"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "2",
+                    "KeyCode": "2",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "²",
+                        "⅔",
+                        "⅖"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "3",
+                    "KeyCode": "3",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "³",
+                        "¾",
+                        "⅗",
+                        "⅜"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "4",
+                    "KeyCode": "4",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁴",
+                        "⅘"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "5",
+                    "KeyCode": "5",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁵",
+                        "⅚",
+                        "⅝"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "6",
+                    "KeyCode": "6",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁶"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "7",
+                    "KeyCode": "7",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁷",
+                        "⅞"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "8",
+                    "KeyCode": "8",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁸"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "9",
+                    "KeyCode": "9",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁹"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "0",
+                    "KeyCode": "0",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "⁰",
+                        "ⁿ",
+                        "∅"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                }
+            ]
+        },
+        {
+            "Size": 1.0,
+            "Spacing": 0.0,
+            "VerticalGap": 0,
+            "PreferredKeySize": {
+                "x": 300.0,
+                "y": 300.0
+            },
+            "ShowAccentHint": true,
+            "Keys": [
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "q",
+                    "KeyCode": "q",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "%"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "w",
+                    "KeyCode": "w",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "\\"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "e",
+                    "KeyCode": "e",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "|",
+                        "ē",
+                        "è",
+                        "é",
+                        "ê",
+                        "ë"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "r",
+                    "KeyCode": "r",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "="
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "t",
+                    "KeyCode": "t",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "["
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "y",
+                    "KeyCode": "y",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "]"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "u",
+                    "KeyCode": "u",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "<",
+                        "ū",
+                        "ù",
+                        "ú",
+                        "û",
+                        "ü"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "i",
+                    "KeyCode": "i",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        ">",
+                        "í",
+                        "ì",
+                        "î",
+                        "î",
+                        "ï"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "o",
+                    "KeyCode": "o",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "{",
+                        "œ",
+                        "õ",
+                        "ø",
+                        "о̄",
+                        "ò",
+                        "ó",
+                        "ô",
+                        "ö"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "p",
+                    "KeyCode": "p",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "}"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                }
+            ]
+        },
+        {
+            "Size": 1.0,
+            "Spacing": 0.0,
+            "VerticalGap": 0,
+            "PreferredKeySize": {
+                "x": 300.0,
+                "y": 300.0
+            },
+            "ShowAccentHint": true,
+            "Keys": [
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "GAP",
+                    "KeyCode": "GAP",
+                    "WidthScale": 0.042500000447034839,
+                    "Accents": [
+                        ")"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "a",
+                    "KeyCode": "a",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "@",
+                        "æ",
+                        "ã",
+                        "å",
+                        "ā",
+                        "à",
+                        "á",
+                        "â",
+                        "ä"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "s",
+                    "KeyCode": "s",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "#",
+                        "ß"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "d",
+                    "KeyCode": "d",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "$"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "f",
+                    "KeyCode": "f",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "_"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "g",
+                    "KeyCode": "g",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "&"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "h",
+                    "KeyCode": "h",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "-"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "j",
+                    "KeyCode": "j",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "+"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "k",
+                    "KeyCode": "k",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "("
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "l",
+                    "KeyCode": "l",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        ")"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "GAP",
+                    "KeyCode": "GAP",
+                    "WidthScale": 0.042500000447034839,
+                    "Accents": [
+                        ")"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                }
+            ]
+        },
+        {
+            "Size": 1.0,
+            "Spacing": 0.0,
+            "VerticalGap": 0,
+            "PreferredKeySize": {
+                "x": 300.0,
+                "y": 300.0
+            },
+            "ShowAccentHint": true,
+            "Keys": [
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "SHIFT",
+                    "KeyCode": "SHIFT",
+                    "WidthScale": 1.5,
+                    "Accents": [],
+                    "BackgroundColor": {
+                        "r": 0.6901960968971252,
+                        "g": 0.6901960968971252,
+                        "b": 0.6901960968971252,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "z",
+                    "KeyCode": "z",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "*"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "x",
+                    "KeyCode": "x",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "\""
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "c",
+                    "KeyCode": "c",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "'",
+                        "ç"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "v",
+                    "KeyCode": "v",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        ":"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "b",
+                    "KeyCode": "b",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        ";"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "n",
+                    "KeyCode": "n",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "!",
+                        "ñ"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "m",
+                    "KeyCode": "m",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        "?"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "BACKSPACE",
+                    "KeyCode": "BACKSPACE",
+                    "WidthScale": 1.5,
+                    "Accents": [],
+                    "BackgroundColor": {
+                        "r": 0.6901960968971252,
+                        "g": 0.6901960968971252,
+                        "b": 0.6901960968971252,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                }
+            ]
+        },
+        {
+            "Size": 1.0,
+            "Spacing": 0.0,
+            "VerticalGap": 0,
+            "PreferredKeySize": {
+                "x": 300.0,
+                "y": 300.0
+            },
+            "ShowAccentHint": false,
+            "Keys": [
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "?123",
+                    "KeyCode": "Symbols",
+                    "WidthScale": 1.5,
+                    "Accents": [],
+                    "BackgroundColor": {
+                        "r": 0.6901960968971252,
+                        "g": 0.6901960968971252,
+                        "b": 0.6901960968971252,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": ",",
+                    "KeyCode": ",",
+                    "WidthScale": 1.0,
+                    "Accents": [],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": " ",
+                    "KeyCode": " ",
+                    "WidthScale": 5.0,
+                    "Accents": [],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": ".",
+                    "KeyCode": ".",
+                    "WidthScale": 1.0,
+                    "Accents": [
+                        ",",
+                        "@",
+                        "!",
+                        "?",
+                        "#",
+                        ")",
+                        "(",
+                        "/",
+                        ";",
+                        "'",
+                        ":",
+                        "-",
+                        "\"",
+                        "+",
+                        "%",
+                        "&"
+                    ],
+                    "BackgroundColor": {
+                        "r": 1.0,
+                        "g": 1.0,
+                        "b": 1.0,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                },
+                {
+                    "KeyIconPath": "",
+                    "KeyLabel": "RETURN",
+                    "KeyCode": "RETURN",
+                    "WidthScale": 1.5,
+                    "Accents": [],
+                    "BackgroundColor": {
+                        "r": 0.6901960968971252,
+                        "g": 0.6901960968971252,
+                        "b": 0.6901960968971252,
+                        "a": 1.0
+                    },
+                    "Margins": {
+                        "x": 50.0,
+                        "y": 50.0,
+                        "z": 50.0,
+                        "w": 98.19999694824219
+                    }
+                }
+            ]
+        }
+    ]
+}
