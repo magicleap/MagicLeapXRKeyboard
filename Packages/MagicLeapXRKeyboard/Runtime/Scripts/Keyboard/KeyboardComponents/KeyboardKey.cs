@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,6 @@ using UnityEngine.UI;
 namespace MagicLeap.XRKeyboard.Component
 {
 
-
-
     public class KeyboardKey : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler, IDragHandler,  IPointerUpHandler
     {
 
@@ -24,8 +22,6 @@ namespace MagicLeap.XRKeyboard.Component
             Accent
         }
 
-
-        
         public Action<string> OnKeyUp;
         public Action<List<string>, Transform> OnLongPress;
         public string KeyCode ="[SET BY KEYBOARD]";
@@ -46,22 +42,20 @@ namespace MagicLeap.XRKeyboard.Component
         [SerializeField] private bool _showAccentHint;
         private bool _longPressed = false;
         private bool _isPressed;
+        private bool _didClick;
         private float _widthScale = 1;
         private static readonly float _longPressedThreshold = .25f;
 
         public void Awake()
         {
-
             if (string.IsNullOrWhiteSpace(Label))
             {
                 Label = KeyCode;
             }
-
         }
 
         private void Reset()
         {
-
             _rectTransform = gameObject.GetCachedComponent(ref _rectTransform);
             _layoutElement = gameObject.GetCachedComponent(ref _layoutElement);
             _button = gameObject.GetCachedComponentInChildren(ref _button,true);
@@ -89,11 +83,9 @@ namespace MagicLeap.XRKeyboard.Component
             _iconImage.rectTransform.offsetMax = new Vector2(margins.Value.z, margins.Value.y);
             _lable.margin = margins.Value;
           
-        
             gameObject.name = label + extension;
             _group = group;
 
- 
             UpdateActiveKey(mode);
         }
 
@@ -125,8 +117,6 @@ namespace MagicLeap.XRKeyboard.Component
                 _iconImage.enabled = false;
             }
 
-       
-
             _iconImage.rectTransform.offsetMin = new Vector2(key.Margins.x, key.Margins.w);
             _iconImage.rectTransform.offsetMax = new Vector2(key.Margins.z, key.Margins.y);
             _lable.margin = key.Margins;
@@ -135,9 +125,9 @@ namespace MagicLeap.XRKeyboard.Component
             gameObject.name = key.KeyCode;
             _group = group;
           
-           
             UpdateActiveKey(mode);
         }
+
         public void SetInteractable(bool interactable)
         {
             _button.interactable = interactable;
@@ -184,19 +174,16 @@ namespace MagicLeap.XRKeyboard.Component
                 {
                     displayStringKey += "_CAPS";
                 }
-          
             }
 
             if (KeyboardCollections.NonStandardKeyToDisplayString.TryGetValue(displayStringKey.ToUpper(), out var nonStandardKeyCodeText))
             {
                 Label = nonStandardKeyCodeText;
-          
             }
 
             if (KeyboardCollections.LabelsToCode.TryGetValue(KeyCode.ToUpper(), out var keyValue))
             {
                 KeyCode = keyValue;
-
             }
 
             if (_accentLabel != null)
@@ -209,8 +196,8 @@ namespace MagicLeap.XRKeyboard.Component
                 {
                     _accentLabel.text = "";
                 }
-
             }
+            
             _lable.text = Label;
 
             if (_button != null)
@@ -218,12 +205,7 @@ namespace MagicLeap.XRKeyboard.Component
                 _button.interactable = Label.Length > 0;
             }
 
-          
-          
-
         }
-
- 
 
         public void TextPress()
         {
@@ -235,6 +217,7 @@ namespace MagicLeap.XRKeyboard.Component
             {
                 _longPressed = false;
             }
+
         }
 
         private void LongPressStart()
@@ -280,6 +263,7 @@ namespace MagicLeap.XRKeyboard.Component
             }
 
             _longPressed = true;
+
         }
 
         private IEnumerator BackspaceLongPress()
@@ -294,7 +278,6 @@ namespace MagicLeap.XRKeyboard.Component
                 yield return null;
             }
 
-
             float timeStep = 0.1f;
             float nextPress = 0;
             while (_isPressed)
@@ -306,8 +289,8 @@ namespace MagicLeap.XRKeyboard.Component
                 }
                 yield return null;
             }
-        }
 
+        }
 
         private void KeyPressEvent()
         {
@@ -322,15 +305,15 @@ namespace MagicLeap.XRKeyboard.Component
         /// <inheritdoc />
         public void OnPointerClick(PointerEventData eventData)
         {
-           
+            if (_isPressed)
+               TextPress();
+
             _isPressed = false;
-            TextPress();
         }
 
         /// <inheritdoc />
         public void OnPointerDown(PointerEventData eventData) 
         {
-
             _isPressed = true;
             LongPressStart();
         }
@@ -344,7 +327,6 @@ namespace MagicLeap.XRKeyboard.Component
                 return;
             }
 
-       
             EventSystem.current.SetSelectedGameObject(gameObject, eventData);
             ExecuteEvents.Execute(gameObject, eventData, ExecuteEvents.pointerDownHandler);
         }
@@ -363,13 +345,12 @@ namespace MagicLeap.XRKeyboard.Component
         /// <inheritdoc />
         public void OnDrop(PointerEventData eventData)
         {
- 
+
             if (_group != KeyGroup.Accent)
             {
                 return;
             }
 
-        
             ExecuteEvents.Execute(gameObject, eventData, ExecuteEvents.pointerClickHandler);
         }
 
@@ -382,8 +363,13 @@ namespace MagicLeap.XRKeyboard.Component
         /// <inheritdoc />
         public void OnPointerUp(PointerEventData eventData)
         {
-            if(_group == KeyGroup.Normal)
-            _isPressed = false;
+            if (!_longPressed && _isPressed)
+            {
+                KeyPressEvent();
+            }
+
+            if (_group == KeyGroup.Normal)
+                _isPressed = false;
         }
     }
 }
