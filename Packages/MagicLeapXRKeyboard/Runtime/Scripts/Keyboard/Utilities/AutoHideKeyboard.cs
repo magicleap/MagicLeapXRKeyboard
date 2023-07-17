@@ -52,7 +52,7 @@ namespace MagicLeap.XRKeyboard
 		
 				if (!currentSelectedObject.GetComponent<InputField>() && !currentSelectedObject.GetComponent<TMP_InputField>() && !currentSelectedObject.GetComponent<KeyboardKey>() && !currentSelectedObject.GetComponentInParent<Keyboard>())
 				{
-
+					
 					if (_keyboard.IsEditing())
 					{
 						_keyboard.EndEdit();

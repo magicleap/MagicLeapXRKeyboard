@@ -86,7 +86,20 @@ namespace MagicLeap.XRKeyboard
             }
             if (_placeOnAwake)
             {
+               
                 _snapToTarget = true;
+                SnapToTarget();
+                StartCoroutine(UpdateTransformEndOfFrame());
+            }
+        }
+
+        void Start()
+        {
+            if (_placeOnAwake)
+            {
+
+                _snapToTarget = true;
+                SnapToTarget();
                 StartCoroutine(UpdateTransformEndOfFrame());
             }
         }

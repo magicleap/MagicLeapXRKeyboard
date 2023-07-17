@@ -25,7 +25,9 @@ namespace MagicLeap.XRKeyboard
            
         }
 
-        private void Start() {
+        private void Start()
+        {
+          
             _keyboardActive = _keyboard.gameObject.activeInHierarchy;
             _placeInFront = transform.GetCachedComponentInChildren(ref _placeInFront, true);
             if (_showKeyboardOnStart)
