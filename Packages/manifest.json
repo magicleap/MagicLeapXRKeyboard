@@ -11,6 +11,7 @@
   "dependencies": {
     "com.magicleap.unitysdk": "1.5.0",
     "com.unity.ide.rider": "3.0.18",
+    "com.unity.render-pipelines.universal": "14.0.7",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
