@@ -72,12 +72,5 @@ namespace MagicLeap.XRKeyboard.Model
         {
             return Rows;
         }
-
-        public bool ValidateKeyMap()
-        {
-
-
-            return true;
-        }
     }
 }

@@ -171,10 +171,15 @@ namespace MagicLeap.XRKeyboard
                     
                 }
             }
-            
-           
 
-            keyboardLayoutData.ValidateKeyMap();
+            if (!File.Exists(_saveAndLoadPath))
+            {
+                Debug.LogError($"File does not exist. {_saveAndLoadPath}");
+            }
+            Debug.Log($"loaded data from file: {_saveAndLoadPath}");
+            var json = File.ReadAllText(_saveAndLoadPath);
+            keyboardLayoutData = JsonUtility.FromJson<KeyboardLayoutData>(json);
+            RegenerateKeyboard();
         }
 #if UNITY_EDITOR
         [EasyButtons.Button]
