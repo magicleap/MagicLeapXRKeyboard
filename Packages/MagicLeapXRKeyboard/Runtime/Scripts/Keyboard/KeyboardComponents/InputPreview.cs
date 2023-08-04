@@ -20,13 +20,14 @@ namespace MagicLeap.XRKeyboard.Component
         [Header("Components")]
         [SerializeField] private TMP_InputField _previewInputField;
         [SerializeField] private RectTransform _rectTransform;
-        public float YPositionOffset =0;
         private TMP_InputField _targetInputField;
         private bool _deselect;
         private bool _select;
         private bool _updateCaret;
         private int _targetCaret = 0;
         private bool _previewSelected;
+        private int _startSelectionIndex;
+        private int _endSelectionIndex;
        
         public RectTransform GetRectTransform()
         {
@@ -128,7 +129,6 @@ namespace MagicLeap.XRKeyboard.Component
         private void OnTargetValueChanged(string newText)
         {
             _previewInputField.text = (newText);
-            _updateCaret = true;
             _targetCaret = _targetInputField.caretPosition;
         
            _previewSelected = false;
@@ -146,7 +146,6 @@ namespace MagicLeap.XRKeyboard.Component
         {
             _previewSelected = false;
         }
-
         /// <summary>
         /// If text is selected, update the selection based on which input field was interacted with. cache the update so we can render it correctly (textmeshpro does not allow for updates here)
         /// </summary>
@@ -156,16 +155,25 @@ namespace MagicLeap.XRKeyboard.Component
             {
                 return;
             }
+
+            if (_startSelectionIndex == start && _endSelectionIndex == end)
+            {
+                return;
+            }
             _deselect = start == end;
             _select = start != end;
             if (_previewSelected)
             {
+               
                 CopyCaretAndSelection(_previewInputField, _targetInputField);
             }
             else
             {
                 CopyCaretAndSelection(_targetInputField, _previewInputField);
             }
+
+            _startSelectionIndex = start;
+            _endSelectionIndex = end;
         }
 
         /// <summary>
@@ -179,11 +187,9 @@ namespace MagicLeap.XRKeyboard.Component
             }
             if (to.caretPosition != from.caretPosition || force)
             {
-              
                 to.caretPosition = from.caretPosition;
                 UpdateMesh(from);
                 UpdateMesh(to);
-        
             }
             
             to.stringPosition = from.stringPosition;
@@ -193,7 +199,6 @@ namespace MagicLeap.XRKeyboard.Component
             to.selectionAnchorPosition = from.selectionAnchorPosition;
             to.caretBlinkRate = .85f;
             from.caretBlinkRate = .85f;
-           
         }
 
         /// <summary>
@@ -217,26 +222,18 @@ namespace MagicLeap.XRKeyboard.Component
             }
 
         }
-        /// <summary>
-        /// Aligns panel to the top edge of the given rect.
-        /// </summary>
-        public void StartResizeToRect(RectTransform panel)
+      
+        public void SetParent(RectTransform panel)
         {
-            _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, panel.offsetMax.y + _rectTransform.sizeDelta.y +YPositionOffset);
-            _rectTransform.sizeDelta = new Vector2(panel.sizeDelta.x, _rectTransform.sizeDelta.y);
-            if(gameObject.activeSelf)
-            {
-                StartCoroutine(DoUpdatePreviewSize(panel));
-            }
-        }
-        //calls after canvas updates
-        IEnumerator DoUpdatePreviewSize(RectTransform panel)
-        {
-            yield return null;
-            _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, panel.offsetMax.y + _rectTransform.sizeDelta.y + YPositionOffset);
-            _rectTransform.sizeDelta = new Vector2(panel.sizeDelta.x, _rectTransform.sizeDelta.y);
+            _rectTransform.SetParent(panel);
+            _rectTransform.SetAsFirstSibling();
         }
 
+        public void SetParent(Transform panel)
+        {
+            _rectTransform.SetParent(panel,false);
+            _rectTransform.SetAsFirstSibling();
+        }
         private void Update()
         {
             if (_targetInputField)

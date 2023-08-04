@@ -35,6 +35,10 @@ namespace MagicLeap.XRKeyboard
             
         }
 
+        public Transform KeyboardContainer()
+        {
+            return keyboardBuilder.keyboardContainer;
+        }
         private void OnDrawGizmosSelected()
         {
             keyboardBuilder = gameObject.GetCachedComponent(ref keyboardBuilder);
