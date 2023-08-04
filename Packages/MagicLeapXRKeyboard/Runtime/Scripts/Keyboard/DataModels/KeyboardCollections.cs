@@ -16,9 +16,10 @@ namespace MagicLeap.XRKeyboard.Model
                                                                                                     { "SPACE", " " },
                                                                                                     { "RETURN", "\ue31b" },
                                                                                                     { "SHIFT", "\ue5f2" },
-
+                                                                                                    { "HIDE", "\ue31A" },
                                                                                                 };
 
+        
 
         public static Dictionary<string, string> LabelsToCode = new Dictionary<string, string>()
                                                                                  {

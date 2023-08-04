@@ -223,6 +223,11 @@ namespace MagicLeap.XRKeyboard
                 return;
             }
 
+            if (keyCode.ToUpper().Equals("HIDE"))
+            {
+                EndEdit();
+                return;
+            }
        
             EncodeKeyEvent(keyCode);
         }
@@ -312,7 +317,7 @@ namespace MagicLeap.XRKeyboard
             {
                 HideAllKeyboardLayouts();
                 panel.ShowPanel();
-                _inputPreview.StartResizeToRect(panel.GetRectTransform());
+                _inputPreview.SetParent(panel.KeyboardContainer().parent);
                 
                 //Shift Hide Button to edge of panel
                 _hideButtonRectTransform.anchoredPosition = new Vector2(panel.GetRectTransform().offsetMax.x + (_hideButtonRectTransform.sizeDelta.x / 1.7f), -(panel.GetRectTransform().sizeDelta.y / 4.4f));
