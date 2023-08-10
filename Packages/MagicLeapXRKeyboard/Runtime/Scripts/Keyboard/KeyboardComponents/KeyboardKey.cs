@@ -22,10 +22,16 @@ namespace MagicLeap.XRKeyboard.Component
             Accent
         }
 
-        public Action<string> OnKeyUp;
-        public Action<List<string>, Transform> OnLongPress;
+    
+        public Action OnPress;
+        public Action OnSelect;
+        public Action OnDeselect;
+        public Action OnLongPress;
+        public Action<string> OnKeyPress;
+        public Action<List<string>, Transform> OnLongKeyPress;
         public string KeyCode ="[SET BY KEYBOARD]";
         public string Label="[SET BY KEYBOARD]";
+        public bool IsPressed => _isPressed;
         
         [Header("Components")]
         [SerializeField] private TMP_Text _lable;
@@ -226,31 +232,33 @@ namespace MagicLeap.XRKeyboard.Component
 
         }
 
-        private void LongPressStart()
+        private void LongPressStart(PointerEventData eventData)
         {
             _longPressed = false;
             if (_longPressDetectorCoroutine != null)
             {
                 StopCoroutine(_longPressDetectorCoroutine);
             }
-            _longPressDetectorCoroutine = StartCoroutine(LongPressDetection());
+            _longPressDetectorCoroutine = StartCoroutine(LongPressDetection(eventData));
         }
 
-        private IEnumerator LongPressDetection()
+        private IEnumerator LongPressDetection(PointerEventData eventData)
         {
             float longpressThreshold = Time.time + _longPressedThreshold;
             while (_isPressed && !_longPressed)
             {
                 if (Time.time > longpressThreshold)
                 {
-                    InvokeLongPress();
+                    _longPressed = true;
+                    InvokeLongPress(eventData);
                 }
                 yield return null;
             }
         }
 
-        private void InvokeLongPress()
+        private void InvokeLongPress(PointerEventData eventData)
         {
+          
             switch (KeyCode.ToUpper())
             {
                 case "\u0008": //BACKSPACE
@@ -258,20 +266,61 @@ namespace MagicLeap.XRKeyboard.Component
                     {
                         StopCoroutine(_longPressCoroutine);
                     }
+
+                    OnLongPress?.Invoke();
                     _longPressCoroutine = StartCoroutine(BackspaceLongPress());
+                    break;
+                case " ": // SPACE
+                    if (_longPressCoroutine != null)
+                    {
+                        StopCoroutine(_longPressCoroutine);
+                    }
+
+                    OnLongPress?.Invoke();
+                    _longPressCoroutine = StartCoroutine(SpaceLongPress());
                     break;
                 default:
                     if (_accents.Count>0)
                     {
-                        OnLongPress?.Invoke(_accents, transform);
+                        OnLongKeyPress?.Invoke(_accents, transform);
+                        OnLongPress?.Invoke();
+                        ExecuteEvents.Execute(gameObject, eventData, ExecuteEvents.pointerUpHandler);
                     }
                     break;
             }
 
-            _longPressed = true;
+           
 
         }
 
+        private IEnumerator SpaceLongPress()
+        {
+            float gracePeriodThreshold = Time.time + _longPressedThreshold;
+            while (Time.time < gracePeriodThreshold)
+            {
+                if (!_isPressed)
+                {
+                    break;
+                }
+
+                yield return null;
+            }
+
+            float timeStep = 0.1f;
+            float nextPress = 0;
+            while (_isPressed)
+            {
+                if (Time.time > nextPress)
+                {
+                    nextPress = Time.time + timeStep;
+                    KeyPressEvent();
+                }
+
+                yield return null;
+            }
+
+        }
+        
         private IEnumerator BackspaceLongPress()
         {
             float gracePeriodThreshold = Time.time + _longPressedThreshold;
@@ -300,7 +349,8 @@ namespace MagicLeap.XRKeyboard.Component
 
         private void KeyPressEvent()
         {
-            OnKeyUp?.Invoke(KeyCode);
+            OnKeyPress?.Invoke(KeyCode);
+            OnPress?.Invoke();
         }
 
         public float GetKeyScale()
@@ -313,6 +363,11 @@ namespace MagicLeap.XRKeyboard.Component
         {
             if (_isPressed)
             {
+                if (_optionalOverGraphic && _isPressed == false)
+                {
+                    _optionalOverGraphic.enabled = false;
+                }
+
                 TextPress();
             }
             
@@ -331,13 +386,15 @@ namespace MagicLeap.XRKeyboard.Component
             _isPressed = true;
             if (_group != KeyGroup.Accent)
             {
-                LongPressStart();
+                LongPressStart(eventData);
             }
+
         }
 
         /// <inheritdoc />
         public void OnPointerEnter(PointerEventData eventData)
         {
+            OnSelect?.Invoke();
             if (_optionalOverGraphic)
             {
                 _optionalOverGraphic.enabled = true;
@@ -347,6 +404,7 @@ namespace MagicLeap.XRKeyboard.Component
                 return;
             }
 
+      
             EventSystem.current.SetSelectedGameObject(gameObject, eventData);
             ExecuteEvents.Execute(gameObject, eventData, ExecuteEvents.pointerDownHandler);
         }
@@ -354,7 +412,8 @@ namespace MagicLeap.XRKeyboard.Component
         /// <inheritdoc />
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_optionalOverGraphic)
+            OnDeselect?.Invoke();
+            if (_optionalOverGraphic && _isPressed==false)
             {
                 _optionalOverGraphic.enabled = false;
             }

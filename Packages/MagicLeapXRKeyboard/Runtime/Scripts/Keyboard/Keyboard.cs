@@ -71,8 +71,8 @@ namespace MagicLeap.XRKeyboard
                 var keys = keyboardPanel.GetKeys();
                 foreach (var keyButton in keys)
                 {
-                    keyButton.OnKeyUp += OnKeyboardButtonUp;
-                    keyButton.OnLongPress += ShowAccentOverlay;
+                    keyButton.OnKeyPress += OnKeyboardButtonUp;
+                    keyButton.OnLongKeyPress += ShowAccentOverlay;
                 }
             }
 
@@ -85,8 +85,8 @@ namespace MagicLeap.XRKeyboard
         {
             for (int i = 0; i < keys.Length; i++)
             {
-                keys[i].OnKeyUp += OnKeyboardButtonUp;
-                keys[i].OnLongPress += ShowAccentOverlay;
+                keys[i].OnKeyPress += OnKeyboardButtonUp;
+                keys[i].OnLongKeyPress += ShowAccentOverlay;
             }
         }
         public void HideAllKeyboardLayouts()

@@ -156,29 +156,32 @@ namespace MagicLeap.XRKeyboard
         // ReSharper disable once UnusedMember.Global
         public void LoadFromJSON()
         {
-          
-            if (!File.Exists(_saveAndLoadPath))
+            var loadPath = _saveAndLoadPath;
+            if (!File.Exists(loadPath))
             {
              
-                var streamingAssetsPath = Path.Combine(Application.streamingAssetsPath, _saveAndLoadPath);
+                var streamingAssetsPath = Path.Combine(Application.streamingAssetsPath, loadPath);
                 if (File.Exists(streamingAssetsPath))
                 {
-                    _saveAndLoadPath = Path.GetFullPath(streamingAssetsPath).Replace("\\", "/");
+                    loadPath = Path.GetFullPath(streamingAssetsPath).Replace("\\", "/");
                 }
                 else 
                 {
-                    _saveAndLoadPath = Path.GetFullPath(Path.Combine(Application.dataPath, _saveAndLoadPath)).Replace("\\","/");
+                    loadPath = Path.GetFullPath(Path.Combine(Application.dataPath, loadPath)).Replace("\\","/");
                     
                 }
             }
 
-            if (!File.Exists(_saveAndLoadPath))
+            if (!File.Exists(loadPath))
             {
-                Debug.LogError($"File does not exist. {_saveAndLoadPath}");
+                Debug.LogError($"File does not exist. {loadPath}");
             }
-            Debug.Log($"loaded data from file: {_saveAndLoadPath}");
-            var json = File.ReadAllText(_saveAndLoadPath);
+            Debug.Log($"loaded data from file: {loadPath}");
+            var json = File.ReadAllText(loadPath);
             keyboardLayoutData = JsonUtility.FromJson<KeyboardLayoutData>(json);
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(this);
+#endif
             RegenerateKeyboard();
         }
 #if UNITY_EDITOR
@@ -206,20 +209,26 @@ namespace MagicLeap.XRKeyboard
                 }
             }
 
+            string tempPath = _saveAndLoadPath;
+            
             if (string.IsNullOrWhiteSpace(_saveAndLoadPath))
             {
-                _saveAndLoadPath = Path.Combine(Application.dataPath, $"Keymaps/{keyboardLayoutData.Description}.json").Replace("\\", "/");
+                _saveAndLoadPath = $"Keymaps/{keyboardLayoutData.Description}.json";
+                tempPath = Path.Combine(Application.dataPath, _saveAndLoadPath).Replace("\\", "/");
             }
+          
 
-            _saveAndLoadPath = _saveAndLoadPath.Replace("\\", "/");
+            
+
+            tempPath = tempPath.Replace("\\", "/");
             var dataPath = Application.dataPath.Replace("\\", "/");
             string jsonMap = JsonUtility.ToJson(keyboardLayoutData, true);
 
-            if (!_saveAndLoadPath.Contains(".json"))
+            if (!tempPath.Contains(".json"))
             {
                 var fixAndContinue = UnityEditor.EditorUtility.DisplayDialog($"Incorrect file format",
-                                                                        $"The path \"{_saveAndLoadPath}\"does not contain a '.json' extension. "
-                                                                    + $"Do you want to correct the name to \"{_saveAndLoadPath}/{keyboardLayoutData.Description}.json\"?"
+                                                                        $"The path \"{tempPath}\"does not contain a '.json' extension. "
+                                                                    + $"Do you want to correct the name to \"{tempPath}/{keyboardLayoutData.Description}.json\"?"
                                                                     , "Yes", "Cancel");
                 if (!fixAndContinue)
                 {
@@ -229,7 +238,7 @@ namespace MagicLeap.XRKeyboard
 
 
     
-            var savePath = _saveAndLoadPath;
+            var savePath = tempPath;
             if (!Path.IsPathRooted(savePath))
             {
                 savePath = Path.GetFullPath(Path.Combine(dataPath, savePath)).Replace("\\", "/");
