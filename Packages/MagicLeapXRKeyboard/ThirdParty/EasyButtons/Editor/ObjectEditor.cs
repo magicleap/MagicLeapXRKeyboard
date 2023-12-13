@@ -19,6 +19,8 @@
 
         public override void OnInspectorGUI()
         {
+            if(_buttonsDrawer== null)
+            return;
             DrawDefaultInspector();
             _buttonsDrawer.DrawButtons(targets);
         }
