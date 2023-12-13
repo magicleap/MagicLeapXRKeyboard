@@ -3,6 +3,7 @@ using MagicLeap.XRKeyboard.Component;
 using MagicLeap.XRKeyboard.Extensions;
 using TMPro;
 using UnityEngine;
+using MagicLeap.XRKeyboard.Utilities;
 
 namespace MagicLeap.XRKeyboard
 {
@@ -11,7 +12,7 @@ namespace MagicLeap.XRKeyboard
         public static KeyboardManager Instance { get; private set; }
 
         [SerializeField] private bool _showKeyboardOnStart = false;
-        [SerializeField] private PlaceInFront _placeInFront;
+        [SerializeField] private FollowTarget _followTarget;
         [SerializeField] private Keyboard _keyboard;
         private bool _keyboardActive = false;
         private void Awake()
@@ -29,7 +30,7 @@ namespace MagicLeap.XRKeyboard
         {
           
             _keyboardActive = _keyboard.gameObject.activeInHierarchy;
-            _placeInFront = transform.GetCachedComponentInChildren(ref _placeInFront, true);
+            _followTarget = transform.GetCachedComponentInChildren(ref _followTarget, true);
             if (_showKeyboardOnStart)
             {
                 ShowKeyboard(null, TMP_InputField.ContentType.Alphanumeric);
@@ -44,9 +45,10 @@ namespace MagicLeap.XRKeyboard
 
         public virtual Keyboard ShowKeyboard(TMPInputFieldTextReceiver inputFieldReceiver, TMP_InputField.ContentType contentType)
         {
-            if (_placeInFront)
+            if (_followTarget)
             {
-                _placeInFront.SnapToTarget();
+                _followTarget.enabled = true;
+                _followTarget.Recenter();
             }
 
             _keyboard.SetKeyboard(inputFieldReceiver, contentType);
