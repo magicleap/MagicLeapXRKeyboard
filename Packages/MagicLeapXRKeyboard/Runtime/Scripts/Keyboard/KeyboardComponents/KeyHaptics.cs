@@ -51,21 +51,21 @@ namespace MagicLeap.XRKeyboard.Component
 		/// <inheritdoc />
 		public void OnPointerDown(PointerEventData eventData)
 		{
-			
+			if (!_keyAssigned)
+			{
+				_pressBuzz.StartHaptics();
+			}
+			else
+			{
+				_selectBuzz.StartHaptics();
+			}
 		}
 
 		/// <inheritdoc />
 		public void OnPointerEnter(PointerEventData eventData)
 		{
-			
-				if (!_keyAssigned)
-				{
-					_selectBuzz.StartHaptics();
-				}
-				else
-				{
-					_selectBuzz.StartHaptics();
-				}
+
+			_selectBuzz.StartHaptics();
 		
 		}
 
