@@ -30,9 +30,9 @@
             if (cache == null)
             {
                 // Attempt to get component from GameObject
-                T retreivedComp = obj.GetComponent<T>();
+                T retrievedComp = obj.GetComponent<T>();
 
-                return retreivedComp != null ? retreivedComp : obj.gameObject.AddComponent<T>();
+                return retrievedComp != null ? retrievedComp : obj.gameObject.AddComponent<T>();
 
             }
 
@@ -70,9 +70,9 @@
             if (cache == null)
             {
                 // Attempt to get component from GameObject
-                T retreivedComp = obj.GetComponent<T>();
+                T retrievedComp = obj.GetComponent<T>();
 
-                return retreivedComp != null ? retreivedComp : obj.AddComponent<T>();
+                return retrievedComp != null ? retrievedComp : obj.AddComponent<T>();
 
             }
 
@@ -92,10 +92,10 @@
         public static T GetOrAddComponent<T>(this Transform obj) where T : Component
         {
             // Attempt to get component from GameObject
-            T retreivedComp = obj.GetComponent<T>();
+            T retrievedComp = obj.GetComponent<T>();
 
-            if (retreivedComp != null)
-                return retreivedComp;
+            if (retrievedComp != null)
+                return retrievedComp;
 
             // This component wasn't found on the object, so add it.
             return obj.gameObject.AddComponent<T>();
@@ -110,9 +110,9 @@
             if (cache == null)
             {
                 // Attempt to get component from GameObject
-                T retreivedComp = obj.GetComponent<T>();
+                T retrievedComp = obj.GetComponent<T>();
 
-                return retreivedComp != null ? retreivedComp : obj.gameObject.AddComponent<T>();
+                return retrievedComp != null ? retrievedComp : obj.gameObject.AddComponent<T>();
 
             }
 
@@ -134,10 +134,10 @@
                                                                                                       where T2 : MonoBehaviour
         {
             // Attempt to get component from GameObject
-            T retreivedComp = obj.GetComponentInChildren<T>(includeInactive);
+            T retrievedComp = obj.GetComponentInChildren<T>(includeInactive);
 
-            if (retreivedComp != null)
-                return retreivedComp;
+            if (retrievedComp != null)
+                return retrievedComp;
 
             // This component wasn't found on the object, so add it.
             return obj.gameObject.AddComponent<T>();
@@ -152,11 +152,11 @@
             if (cache == null)
             {
                 // Attempt to get component from GameObject
-                T retreivedComp = obj.GetComponentInChildren<T>(includeInactive);
-
-                return retreivedComp != null ? retreivedComp : obj.gameObject.AddComponent<T>();
+                T retrievedComp = obj.GetComponentInChildren<T>(includeInactive);
 
                 // This component wasn't found on the object, so add it.
+                return retrievedComp != null ? retrievedComp : obj.gameObject.AddComponent<T>();
+
             }
 
             return cache;
@@ -176,10 +176,10 @@
         public static T GetOrAddComponentInChildren<T>(this GameObject obj, bool includeInactive = false) where T : Component
         {
             // Attempt to get component from GameObject
-            T retreivedComp = obj.GetComponentInChildren<T>(includeInactive);
+            T retrievedComp = obj.GetComponentInChildren<T>(includeInactive);
 
-            if (retreivedComp != null)
-                return retreivedComp;
+            if (retrievedComp != null)
+                return retrievedComp;
 
             // This component wasn't found on the object, so add it.
             return obj.AddComponent<T>();
@@ -193,11 +193,12 @@
             if (cache == null)
             {
                 // Attempt to get component from GameObject
-                T retreivedComp = obj.GetComponentInChildren<T>(includeInactive);
-
-                return retreivedComp != null ? retreivedComp : obj.gameObject.AddComponent<T>();
-
+                T retrievedComp = obj.GetComponentInChildren<T>(includeInactive);
+                
                 // This component wasn't found on the object, so add it.
+                return retrievedComp != null ? retrievedComp : obj.gameObject.AddComponent<T>();
+
+
             }
 
             return cache;
@@ -216,10 +217,10 @@
         public static T GetOrAddComponentInChildren<T>(this Transform obj,bool includeInactive=false) where T : Component
         {
             // Attempt to get component from GameObject
-            T retreivedComp = obj.GetComponentInChildren<T>(includeInactive);
+            T retrievedComp = obj.GetComponentInChildren<T>(includeInactive);
 
-            if (retreivedComp != null)
-                return retreivedComp;
+            if (retrievedComp != null)
+                return retrievedComp;
 
             // This component wasn't found on the object, so add it.
             return obj.gameObject.AddComponent<T>();
@@ -233,11 +234,12 @@
             if (cache == null)
             {
                 // Attempt to get component from GameObject
-                T retreivedComp = obj.GetComponentInChildren<T>(includeInactive);
-
-                return retreivedComp != null ? retreivedComp : obj.gameObject.AddComponent<T>();
-
+                T retrievedComp = obj.GetComponentInChildren<T>(includeInactive);
+                
                 // This component wasn't found on the object, so add it.
+                return retrievedComp != null ? retrievedComp : obj.gameObject.AddComponent<T>();
+
+           
             }
 
             return cache;
