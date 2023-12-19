@@ -5,6 +5,9 @@ using MagicLeap.XRKeyboard.Extensions;
 
 namespace MagicLeap.XRKeyboard.Component
 {
+	/// <summary>
+	/// Organizes the <see cref="KeyboardKey"/>s based on the json data used in the <see cref="KeyboardBuilder"/>.
+	/// </summary>
 	[RequireComponent(typeof(RectTransform))]
 	[RequireComponent(typeof(LayoutElement))]
 	[RequireComponent(typeof(HorizontalLayoutGroup))]

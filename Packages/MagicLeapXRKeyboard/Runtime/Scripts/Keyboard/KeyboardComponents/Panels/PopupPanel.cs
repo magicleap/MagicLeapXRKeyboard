@@ -10,6 +10,9 @@ using MagicLeap.XRKeyboard.Extensions;
 
 namespace MagicLeap.XRKeyboard
 {
+    /// <summary>
+    /// Panel that shows when a long press is activated. 
+    /// </summary>
     public class PopupPanel : MonoBehaviour
     {
         public UnityEvent<KeyboardKey[]> OnKeysCreated;

@@ -10,7 +10,9 @@ using MagicLeap.XRKeyboard.Model;
 
 namespace MagicLeap.XRKeyboard
 {
- 
+    /// <summary>
+    /// Consumes JSON data to create the <see cref="KeyboardLayout"/> objects. The script requires that you assign the <see cref="KeyboardKey"/> and <see cref="KeyboardRow"/> prefab. 
+    /// </summary>
     public class KeyboardBuilder : MonoBehaviour
     {
       

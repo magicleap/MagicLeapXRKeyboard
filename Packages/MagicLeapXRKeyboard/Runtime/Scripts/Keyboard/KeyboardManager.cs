@@ -7,6 +7,9 @@ using MagicLeap.XRKeyboard.Utilities;
 
 namespace MagicLeap.XRKeyboard
 {
+    /// <summary>
+    /// Allows users to toggle the <see cref="Keyboard"/> on and off.
+    /// </summary>
     public class KeyboardManager : MonoBehaviour
     {
         public static KeyboardManager Instance { get; private set; }

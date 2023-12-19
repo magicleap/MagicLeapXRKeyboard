@@ -15,7 +15,9 @@ namespace MagicLeap.XRKeyboard
  
     [Serializable]
     public class KeyboardByIdSerializedDictionary : SerializableDictionary<string, KeyboardLayout> { }
-
+    /// <summary>
+    /// Manages multiple <see cref="KeyboardLayout"/>s and controls modifier key presses like Shift  and Caps Lock/
+    /// </summary>
     public class Keyboard : MonoBehaviour
     {
         public enum Modifier

@@ -5,6 +5,10 @@ using UnityEngine.XR.MagicLeap;
 
 namespace MagicLeap.XRKeyboard.Component
 {
+
+	/// <summary>
+	/// Links UI Input Events to the Magic Leap Controller Haptics.
+	/// </summary>
 	public class KeyHaptics : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
 	{
 

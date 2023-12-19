@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace MagicLeap.XRKeyboard.Component
 {
+    /// <summary>
+    /// Shows the current input content above the keyboard. This component parents itself to the current active <see cref="KeyboardLayout"/>.
+    /// </summary>
     public class InputPreview : MonoBehaviour
     {
      

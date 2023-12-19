@@ -1,23 +1,21 @@
 # Magic Leap XR Keyboard
 
-A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in `Assets/XRKeyboard/Scenes/XRKeyboardExample.unity`
+A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in the samples folder.
 
-## Authors:
-```
-"name": "Adrian Babilinski",
-"email": "ababilinski@magicleap.com",
-"url": "https://forum.magicleap.cloud/u/ababilinski/"
-```
+Make sure to set the input option in **Player Settings** to `new`.
+
+
 ## Getting Started
 
 ### Keyboard
-- Place the Keyboard prefab from `XRKeyboard/Prefabs/Keyboard Manager.prefab` into the scene
+- Place the Keyboard prefab from `Runtime/Prefabs/Keyboard Manager.prefab` into the scene
 
 ### Set Up Input Fields
 - Add the script `TMPInputFieldTextReceiver.cs` onto any **TextMeshPro Input Field** you want to use with the Keyboard
 
 ## Structure
-The Keyboard consists of 2 main scripts:
+The Keyboard prefab is structured in the following way:
+
 - `KeyboardManager.cs` -  Allows users to toggle the **Keyboard** on and off.
 - `Keyboard.cs` - Manages multiple **Keyboard Layouts** and controls modifier key presses like Shift  and Caps Lock
 - `KeyboardLayout.cs`  - groups the **Keys** and **Keyboard Rows** and communicates to the **Keyboard Builder** to generate a new layout if needed.
@@ -47,7 +45,7 @@ Magic Leap XR Keyboard uses the following fonts to support unicode characters:
 | Quivira  | http://www.quivira-font.com/characters.php|
 
 #### Shift
-The shift label is appended with `_NEUTRAL` `_SHIFT`  and `_CAPS` at runtime depending on the shift state. A key with the label **`SHIFT`** will use the following unicodes (they can be changed in `Assets/XRKeyboard/Scripts/XRKeyboard/DataModels/KeyboardCollections.cs`)
+The shift label is appended with `_NEUTRAL` `_SHIFT`  and `_CAPS` at runtime depending on the shift state. A key with the label **`SHIFT`** will use the following unicodes (they can be changed in `Runtime/Scripts/Keyboard/DataModels/KeyboardCollections.cs`)
 |Label Name | Value|
 |--|--|
 |SHIFT_NEUTRAL|\ue5f2|

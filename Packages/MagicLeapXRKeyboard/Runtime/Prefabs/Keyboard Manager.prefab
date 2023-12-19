@@ -15056,7 +15056,7 @@ MonoBehaviour:
   _rotateLerpTime: 0.5
   _maxViewVerticalDegrees: 36
   _reorientWhenOutsideParameters: 1
-  _orientToControllerDeadzoneDegrees: 60
+  _orientToControllerDeadzoneDegrees: 30
   _ignoreAngleClamp: 0
   _ignoreDistanceClamp: 0
   _ignoreReferencePitchAndRoll: 0

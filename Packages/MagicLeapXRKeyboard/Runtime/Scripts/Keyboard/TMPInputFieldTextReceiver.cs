@@ -10,7 +10,9 @@ using UnityEngine.UI;
 namespace MagicLeap.XRKeyboard.Component
 {
 
-
+    /// <summary>
+    /// Transmits keyboard input to the selected <see cref="TMP_InputField"/>.
+    /// </summary>
     public class TMPInputFieldTextReceiver : MonoBehaviour, ISelectHandler
     {
         [SerializeField] private TMP_InputField _textMeshInputField;

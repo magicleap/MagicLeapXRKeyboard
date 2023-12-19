@@ -8,6 +8,9 @@ using MagicLeap.XRKeyboard.Extensions;
 namespace MagicLeap.XRKeyboard
 {
 
+    /// <summary>
+    /// Groups the <see cref="KeyboardKey"/>s and <see cref="KeyboardRow"/>s and communicates to the <see cref="keyboardBuilder"/> to generate a new layout if needed. 
+    /// </summary>
     [RequireComponent(typeof(KeyboardBuilder))]
     public class KeyboardLayout : MonoBehaviour
     {

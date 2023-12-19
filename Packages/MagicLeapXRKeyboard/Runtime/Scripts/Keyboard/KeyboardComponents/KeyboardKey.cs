@@ -12,7 +12,9 @@ using UnityEngine.UI;
 
 namespace MagicLeap.XRKeyboard.Component
 {
-
+    /// <summary>
+    /// Controls the visual key graphics and input.
+    /// </summary>
     public class KeyboardKey : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler, IDropHandler, IDragHandler,  IPointerUpHandler
     {
 

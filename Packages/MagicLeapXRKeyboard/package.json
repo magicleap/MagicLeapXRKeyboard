@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "XR Keyboard that works with XR Interaction Toolkit",
   "displayName": "Magic Leap XR Keyboard",
   "keywords": [
@@ -22,5 +22,12 @@
   "dependencies": {
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.xr.interaction.toolkit": "2.2.0"
-  }
+  },
+  "samples": [
+        {
+            "displayName": "Sample Scene",
+            "description": "A scene that shows how to configure the Magic Leap XR Keyobard",
+            "path": "Samples~/KeyboardExample"
+        }
+      ]
 }
