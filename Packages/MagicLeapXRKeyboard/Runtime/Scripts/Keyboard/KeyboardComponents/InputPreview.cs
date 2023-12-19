@@ -118,7 +118,7 @@ namespace MagicLeap.XRKeyboard.Component
 
         _previewInputField.text = newTarget.text;
         _previewInputField.textComponent.rectTransform.anchoredPosition = new Vector2(0, 0);
-
+        _updateCaret = false;
 
         }
 
@@ -280,17 +280,25 @@ namespace MagicLeap.XRKeyboard.Component
             {
              
                 to.caretPosition = from.caretPosition;
-
-                if (!from.HasSelection())
+                if (force)
                 {
                     UpdateMesh(from);
                     UpdateMesh(to);
                 }
                 else
                 {
-                    DoHighlight(from, to);
-                    DoHighlight(from, from);
+                    if (!from.HasSelection())
+                    {
+                        UpdateMesh(from);
+                        UpdateMesh(to);
+                    }
+                    else
+                    {
+                        DoHighlight(from, to);
+                        DoHighlight(from, from);
+                    }
                 }
+   
              
             }
 
@@ -302,6 +310,9 @@ namespace MagicLeap.XRKeyboard.Component
             {
                 to.selectionAnchorPosition = from.selectionAnchorPosition;
             }
+
+            to.caretBlinkRate = .85f;
+            from.caretBlinkRate = .85f;
         }
 
         /// <summary>

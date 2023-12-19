@@ -1,4 +1,6 @@
-﻿namespace EasyButtons.Editor
+﻿using System;
+
+namespace EasyButtons.Editor
 {
     using UnityEditor;
     using Object = UnityEngine.Object;
@@ -20,9 +22,18 @@
         public override void OnInspectorGUI()
         {
             if(_buttonsDrawer== null)
-            return;
-            DrawDefaultInspector();
-            _buttonsDrawer.DrawButtons(targets);
+            {
+                return;
+            }
+
+            try {
+                DrawDefaultInspector();
+                _buttonsDrawer.DrawButtons(targets);
+            }
+            catch
+            {
+                // ignored
+            }
         }
     }
 }

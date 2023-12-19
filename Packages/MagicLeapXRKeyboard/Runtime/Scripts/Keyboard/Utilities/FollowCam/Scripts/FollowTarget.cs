@@ -278,9 +278,14 @@ namespace MagicLeap.XRKeyboard.Utilities
 
             if (_recenterNextUpdate)
             {
+                var cachedSmoothing = _smoothing;
+                _smoothing = false;
                 _previousGoalRotation = goalRotation;
                 SnapTo(goalPosition, goalRotation);
+                UpdateWorkingPositionToGoal();
+                UpdateWorkingRotationToGoal();
                 _recenterNextUpdate = false;
+                _smoothing = cachedSmoothing;
             }
             else
             {
