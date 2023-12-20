@@ -2,10 +2,19 @@
 
 A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in the samples folder.
 
-Make sure to set the input option in **Player Settings** to `new`.
+## Standard Layouts 
+
+![Image of XR Keyboard Layout](Docs/DefaultLayout.png)
+![Image of custom XR Keyboard Layout](Docs/CustomLayout.png)
+**Learn how to create cusom layouts [here](#editing-layout)**
+
+
 
 
 ## Getting Started
+
+Make sure to set the input option in **Player Settings** to `new`.
+
 
 ### Keyboard
 - Place the Keyboard prefab from `Runtime/Prefabs/Keyboard Manager.prefab` into the scene
