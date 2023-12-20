@@ -246,10 +246,10 @@ namespace MagicLeap.XRKeyboard.Component
 
         private IEnumerator LongPressDetection(PointerEventData eventData)
         {
-            float longpressThreshold = Time.time + _longPressedThreshold;
+            float longPressedThreshold = Time.time + _longPressedThreshold;
             while (_isPressed && !_longPressed)
             {
-                if (Time.time > longpressThreshold)
+                if (Time.time > longPressedThreshold)
                 {
                     _longPressed = true;
                     InvokeLongPress(eventData);

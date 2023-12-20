@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MagicLeap.XRKeyboard.Extensions;
 using MagicLeap.XRKeyboard.Model;
+using UnityEngine.Serialization;
 
 namespace MagicLeap.XRKeyboard
 {
@@ -17,13 +18,16 @@ namespace MagicLeap.XRKeyboard
     {
       
         
+        [FormerlySerializedAs("keyPrefab")]
         [Header("Prefabs")]
-        public KeyboardKey keyPrefab;
+        public KeyboardKey KeyPrefab;
 
-        public KeyboardRow keyboardRowPrefab;
+        [FormerlySerializedAs("keyboardRowPrefab")]
+        public KeyboardRow KeyboardRowPrefab;
 
+        [FormerlySerializedAs("keyboardContainer")]
         [Header("Grouped Layout Settings")]
-        public RectTransform keyboardContainer;
+        public RectTransform KeyboardContainer;
 
         [Header("Data")]
         public KeyboardLayoutData keyboardLayoutData;
@@ -89,9 +93,9 @@ namespace MagicLeap.XRKeyboard
         public void RegenerateKeyboard()
         {
          
-            while (keyboardContainer.childCount > 0)
+            while (KeyboardContainer.childCount > 0)
             {
-               DestroyImmediate(keyboardContainer.transform.GetChild(0).gameObject);
+               DestroyImmediate(KeyboardContainer.transform.GetChild(0).gameObject);
             }
 
             Keys.Clear();
@@ -101,10 +105,10 @@ namespace MagicLeap.XRKeyboard
 
             var rows = keyboardLayoutData.GetKeyboardRows();
            
-            var rect = keyboardContainer.rect;
+            var rect = KeyboardContainer.rect;
             Vector2 rowSize = new Vector2(rect.size.x, rect.size.y / rows.Count);
-            float rowCenterX = keyboardContainer.anchoredPosition.x / 2;
-            float rowTopY  = keyboardContainer.rect.size.y/2;
+            float rowCenterX = KeyboardContainer.anchoredPosition.x / 2;
+            float rowTopY  = KeyboardContainer.rect.size.y/2;
 
             for (var i = 0; i < rows.Count; i++)
             {
@@ -112,8 +116,8 @@ namespace MagicLeap.XRKeyboard
                 var anchoredPosition = new Vector2(rowCenterX, rowTopY - (rowSize.y * i));
  
 
-                var keyRow = Instantiate(keyboardRowPrefab, keyboardContainer.transform);
-                keyRow.Initialize($"Row {i}", keyboardContainer, rowSize, anchoredPosition, row.Size, row.Spacing,row.VerticalGap);
+                var keyRow = Instantiate(KeyboardRowPrefab, KeyboardContainer.transform);
+                keyRow.Initialize($"Row {i}", KeyboardContainer, rowSize, anchoredPosition, row.Size, row.Spacing,row.VerticalGap);
                 Vector2 keySize = new Vector2(rowSize.x / row.Keys.Count, rowSize.y);
           
              
@@ -128,7 +132,7 @@ namespace MagicLeap.XRKeyboard
                     {
                         var sizeDelta = new Vector2(keySize.x * key.WidthScale, keySize.y);
                         var anchorPosition = new Vector2(keySize.x * j, 0);
-                        var newKey = Instantiate(keyPrefab, keyRow.transform);
+                        var newKey = Instantiate(KeyPrefab, keyRow.transform);
                         newKey.Initialize(key, sizeDelta, anchorPosition, new Vector2(row.PreferredKeySize.x * key.WidthScale, row.PreferredKeySize.y) , row.ShowAccentHint);
                         Keys.Add(newKey);
                         keyRow.Keys.Add(newKey);
@@ -143,8 +147,8 @@ namespace MagicLeap.XRKeyboard
                 Canvas.ForceUpdateCanvases();
             }
 
-            keyboardContainer.MarkAsDirty($"Created Keyboard: {keyboardContainer.name}");
-            LayoutRebuilder.ForceRebuildLayoutImmediate(keyboardContainer);
+            KeyboardContainer.MarkAsDirty($"Created Keyboard: {KeyboardContainer.name}");
+            LayoutRebuilder.ForceRebuildLayoutImmediate(KeyboardContainer);
             Canvas.ForceUpdateCanvases();
         }
 

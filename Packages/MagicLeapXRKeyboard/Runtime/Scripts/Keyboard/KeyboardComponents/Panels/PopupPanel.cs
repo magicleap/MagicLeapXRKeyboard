@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using MagicLeap.XRKeyboard.Component;
 using UnityEngine.Events;
 using MagicLeap.XRKeyboard.Extensions;
+using UnityEngine.Serialization;
 
 namespace MagicLeap.XRKeyboard
 {
@@ -17,8 +18,9 @@ namespace MagicLeap.XRKeyboard
     {
         public UnityEvent<KeyboardKey[]> OnKeysCreated;
         
+        [FormerlySerializedAs("keyPrefab")]
         [Header("Prefabs")]
-        [SerializeField] private KeyboardKey keyPrefab;
+        [SerializeField] private KeyboardKey _keyPrefab;
        
         [Header("Components")]
         [SerializeField] private LayoutGroup _container;
@@ -127,7 +129,7 @@ namespace MagicLeap.XRKeyboard
             for (var i = 0; i < _keyCodes.Count; i++)
             {
                 var special = _keyCodes[i];
-                var newKey = Instantiate(keyPrefab, _container.transform);
+                var newKey = Instantiate(_keyPrefab, _container.transform);
 
 
                 newKey.Initialize(_keySize, new Vector2(_keySize.x * i, 0), special, special, KeyboardKey.KeyGroup.Accent, modifier);

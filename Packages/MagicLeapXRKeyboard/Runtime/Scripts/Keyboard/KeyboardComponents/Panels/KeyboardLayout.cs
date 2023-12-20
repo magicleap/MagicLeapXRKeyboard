@@ -4,21 +4,24 @@ using System.Collections.Generic;
 using MagicLeap.XRKeyboard.Component;
 using UnityEngine;
 using MagicLeap.XRKeyboard.Extensions;
+using UnityEngine.Serialization;
 
 namespace MagicLeap.XRKeyboard
 {
 
     /// <summary>
-    /// Groups the <see cref="KeyboardKey"/>s and <see cref="KeyboardRow"/>s and communicates to the <see cref="keyboardBuilder"/> to generate a new layout if needed. 
+    /// Groups the <see cref="KeyboardKey"/>s and <see cref="KeyboardRow"/>s and communicates to the <see cref="KeyboardBuilder"/> to generate a new layout if needed. 
     /// </summary>
     [RequireComponent(typeof(KeyboardBuilder))]
     public class KeyboardLayout : MonoBehaviour
     {
    
-        public KeyboardBuilder keyboardBuilder;
+        [FormerlySerializedAs("keyboardBuilder")]
+        public KeyboardBuilder KeyboardBuilder;
         public string LayoutId;
+        [FormerlySerializedAs("regenKeyboardOnStart")]
         [Tooltip("When enabled, the keyboard will regenerate from the key map on start")]
-        public bool regenKeyboardOnStart;
+        public bool RegenKeyboardOnStart;
 
         private RectTransform _rectTransform;
    
@@ -27,27 +30,27 @@ namespace MagicLeap.XRKeyboard
         void Start()
         {
             _rectTransform = gameObject.GetCachedComponent(ref _rectTransform);
-            keyboardBuilder = GetComponent<KeyboardBuilder>();
+            KeyboardBuilder = GetComponent<KeyboardBuilder>();
 
-            if (regenKeyboardOnStart) keyboardBuilder.RegenerateKeyboard();
+            if (RegenKeyboardOnStart) KeyboardBuilder.RegenerateKeyboard();
         }
 
         private void Reset()
         {
-            keyboardBuilder = GetComponent<KeyboardBuilder>();
+            KeyboardBuilder = GetComponent<KeyboardBuilder>();
             
         }
 
         public Transform KeyboardContainer()
         {
-            return keyboardBuilder.keyboardContainer;
+            return KeyboardBuilder.KeyboardContainer;
         }
         private void OnDrawGizmosSelected()
         {
-            keyboardBuilder = gameObject.GetCachedComponent(ref keyboardBuilder);
-            if (keyboardBuilder)
+            KeyboardBuilder = gameObject.GetCachedComponent(ref KeyboardBuilder);
+            if (KeyboardBuilder)
             {
-                LayoutId = keyboardBuilder.LayoutId;
+                LayoutId = KeyboardBuilder.LayoutId;
             }
         }
 
@@ -59,7 +62,7 @@ namespace MagicLeap.XRKeyboard
 
         public IReadOnlyCollection<KeyboardRow> GetRows()
         {
-            return keyboardBuilder.KeyRows;
+            return KeyboardBuilder.KeyRows;
         }
         
 
