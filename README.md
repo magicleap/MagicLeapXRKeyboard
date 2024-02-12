@@ -1,6 +1,18 @@
 # Magic Leap XR Keyboard
 A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in `Assets/MagicLeap/Runtime/KeyboardExample/Scenes/XRKeyboardExample.unity`
 
+## How to import
+
+Add the following git url to the [**Unity Package Manager**](https://docs.unity3d.com/Manual/upm-ui-giturl.html): `https://github.com/magicleap/MagicLeapXRKeyboard.git?path=/Packages/MagicLeapXRKeyboard`
+
+
+## Scene Setup
+
+To have the same interactions as in the example scene, make the following changes:
+1. Select the **Game Controller** GameObject from the **XR Rig**
+2. Disable  `Force Grab` from the **XR Ray Interactor**
+2. In the same component, enable `Keep Selected Target Valid`
+
 ## Standard Layouts 
 
 ![Image of XR Keyboard Layout](Docs/DefaultLayout.png)

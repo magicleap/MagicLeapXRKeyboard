@@ -18,7 +18,7 @@ namespace MagicLeap.XRKeyboard.Component
         [SerializeField] private TMP_InputField _textMeshInputField;
         private Keyboard _keyboard;
         private bool _editing;
-
+        private bool _onFocusSelectAll;
 
         private void Start()
         {
@@ -26,7 +26,7 @@ namespace MagicLeap.XRKeyboard.Component
             _textMeshInputField.onSubmit.AddListener(OnSubmit);
 
             _textMeshInputField.shouldHideMobileInput = true;
-
+            _onFocusSelectAll = _textMeshInputField.onFocusSelectAll;
         }
 
         private void Reset()
@@ -63,6 +63,7 @@ namespace MagicLeap.XRKeyboard.Component
                 _keyboard.OnKeyUp += HandleKeyPress;
               
                 _editing = true;
+                _textMeshInputField.onFocusSelectAll = false;
             }
         }
 
@@ -70,7 +71,7 @@ namespace MagicLeap.XRKeyboard.Component
         {
             if (_keyboard != null && _editing)
             {
-              
+                _textMeshInputField.onFocusSelectAll = _onFocusSelectAll;
                 _keyboard.OnKeyUp -= HandleKeyPress;
                 _keyboard.ClearPreview();
                 _keyboard = null;

@@ -18,6 +18,7 @@ namespace MagicLeap.XRKeyboard
         [SerializeField] private FollowTarget _followTarget;
         [SerializeField] private Keyboard _keyboard;
         private bool _keyboardActive = false;
+        private bool _lookAtUser;
         private void Awake()
         {
             if (Instance != null)
@@ -44,12 +45,39 @@ namespace MagicLeap.XRKeyboard
             }
         }
 
+        public void LookAtUser(bool on)
+        {
+            _lookAtUser = on;
+         
+        }
+
+        public void ToggleFollow(bool on)
+        {
+            if (_followTarget)
+            {
+                _followTarget.enabled = on;
+            }
+        }
+
+        private void Update()
+        {
+            if (_lookAtUser)
+            {
+                // Look at the Camera but remain upright
+
+                Vector3 directionToCamera = Camera.main.transform.position - transform.position;
+                Vector3 correctedDirection = new Vector3(directionToCamera.x, directionToCamera.y, -directionToCamera.z);
+                Quaternion rotation = Quaternion.LookRotation(correctedDirection, Vector3.up);
+                transform.rotation = rotation;
+            }
+        }
 
 
         public virtual Keyboard ShowKeyboard(TMPInputFieldTextReceiver inputFieldReceiver, TMP_InputField.ContentType contentType)
         {
             if (_followTarget)
             {
+                _lookAtUser = false;
                 _followTarget.enabled = true;
                 _followTarget.Recenter();
             }
