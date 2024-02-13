@@ -1,6 +1,17 @@
 # Magic Leap XR Keyboard
+A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in `Assets/MagicLeap/Runtime/KeyboardExample/Scenes/XRKeyboardExample.unity`
 
-A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in the samples folder.
+## How to import
+
+Add the following git url to the [**Unity Package Manager**](https://docs.unity3d.com/Manual/upm-ui-giturl.html): `https://github.com/magicleap/MagicLeapXRKeyboard.git?path=/Packages/MagicLeapXRKeyboard`
+
+
+## Scene Setup
+
+To have the same interactions as in the example scene, make the following changes:
+1. Select the **Game Controller** GameObject from the **XR Rig**
+2. Disable  `Force Grab` from the **XR Ray Interactor**
+2. In the same component, enable `Keep Selected Target Valid`
 
 ## Standard Layouts 
 
@@ -9,15 +20,11 @@ A keyboard that can be used in any project that supports Unity's XR Interaction 
 **Learn how to create cusom layouts [here](#editing-layout)**
 
 
-
-
 ## Getting Started
-
 Make sure to set the input option in **Player Settings** to `new`.
 
-
 ### Keyboard
-- Place the Keyboard prefab from `Runtime/Prefabs/Keyboard Manager.prefab` into the scene
+- Place the Keyboard prefab from `Packages/Magic Leap XR Keyboard/Runtime/Prefabs/Keyboard Manager.prefab` into the scene
 
 ### Set Up Input Fields
 - Add the script `TMPInputFieldTextReceiver.cs` onto any **TextMeshPro Input Field** you want to use with the Keyboard
@@ -54,7 +61,7 @@ Magic Leap XR Keyboard uses the following fonts to support unicode characters:
 | Quivira  | http://www.quivira-font.com/characters.php|
 
 #### Shift
-The shift label is appended with `_NEUTRAL` `_SHIFT`  and `_CAPS` at runtime depending on the shift state. A key with the label **`SHIFT`** will use the following unicodes (they can be changed in `Runtime/Scripts/Keyboard/DataModels/KeyboardCollections.cs`)
+The shift label is appended with `_NEUTRAL` `_SHIFT`  and `_CAPS` at runtime depending on the shift state. A key with the label **`SHIFT`** will use the following unicodes (they can be changed in `Packages/Magic Leap XR Keyboard/Runtime/Scripts/Keyboard/DataModels/KeyboardCollections.cs`)
 |Label Name | Value|
 |--|--|
 |SHIFT_NEUTRAL|\ue5f2|

@@ -15921,7 +15921,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 1220949346423123661}
+  - {fileID: 9061354661192945472}
+  - {fileID: 1650285364154425595}
+  - {fileID: 7504050858298649038}
+  - {fileID: 5690721139768202571}
+  - {fileID: 3561038473472920523}
+  - {fileID: 3514401217765640215}
+  - {fileID: 5869232147212987919}
+  - {fileID: 6809751109184862192}
+  - {fileID: 1827504020391142970}
+  - {fileID: 6404264393912596019}
+  - {fileID: 3117349821842734703}
+  - {fileID: 3723318688691884910}
+  - {fileID: 5141248915124420315}
+  - {fileID: 190386317054018025}
+  - {fileID: 4843964772272843639}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -38192,7 +38208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.25}
+  m_AnchoredPosition: {x: 0, y: -0.1}
   m_SizeDelta: {x: 4000, y: 1700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3207516657631873067
