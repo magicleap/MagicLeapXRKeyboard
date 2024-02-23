@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Packages/com.magicleap.xrkeyboard/Runtime/Scenes/XRKeyboardExample.unity
-    guid: 5dbc12394095f03488c87495191e326b
+    path: Assets/MagicLeap/KeyboardExample/Scenes/XRKeyboardExample.unity
+    guid: a8f990ecf8b132346accf1bb755e6028
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8f2059c7d1cd7094cae282bb171ee825, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 784d2ee2e770e4a4e85618eb8cb8e1dc, type: 2}

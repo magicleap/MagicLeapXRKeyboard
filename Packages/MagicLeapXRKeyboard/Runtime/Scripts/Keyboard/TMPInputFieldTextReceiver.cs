@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
@@ -26,7 +27,7 @@ namespace MagicLeap.XRKeyboard.Component
             _textMeshInputField.onSubmit.AddListener(OnSubmit);
 
             _textMeshInputField.shouldHideMobileInput = true;
-            _onFocusSelectAll = _textMeshInputField.onFocusSelectAll;
+            _textMeshInputField.onFocusSelectAll = false;
         }
 
         private void Reset()
@@ -63,7 +64,6 @@ namespace MagicLeap.XRKeyboard.Component
                 _keyboard.OnKeyUp += HandleKeyPress;
               
                 _editing = true;
-                _textMeshInputField.onFocusSelectAll = false;
             }
         }
 
@@ -71,10 +71,13 @@ namespace MagicLeap.XRKeyboard.Component
         {
             if (_keyboard != null && _editing)
             {
-                _textMeshInputField.onFocusSelectAll = _onFocusSelectAll;
+              
                 _keyboard.OnKeyUp -= HandleKeyPress;
+                _textMeshInputField.ReleaseSelection();
                 _keyboard.ClearPreview();
                 _keyboard = null;
+                
+                
             }
 
             _editing = false;

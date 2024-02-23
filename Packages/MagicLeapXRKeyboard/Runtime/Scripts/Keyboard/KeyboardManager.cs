@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using MagicLeap.XRKeyboard.Component;
 using MagicLeap.XRKeyboard.Extensions;
@@ -19,6 +21,7 @@ namespace MagicLeap.XRKeyboard
         [SerializeField] private Keyboard _keyboard;
         private bool _keyboardActive = false;
         private bool _lookAtUser;
+        private Collider[] _colliders;
         private void Awake()
         {
             if (Instance != null)
@@ -30,9 +33,22 @@ namespace MagicLeap.XRKeyboard
            
         }
 
+
+        private void DelayCall(float delay, Action action)
+        {
+            StartCoroutine(DelayCallCoroutine(delay, action));
+        }
+
+        private IEnumerator DelayCallCoroutine(float delay, Action action)
+        {
+            yield return new WaitForSeconds(delay);
+            action?.Invoke();
+        }
+
         private void Start()
         {
-          
+            _colliders = GetComponentsInChildren<Collider>(true);
+            
             _keyboardActive = _keyboard.gameObject.activeInHierarchy;
             _followTarget = transform.GetCachedComponentInChildren(ref _followTarget, true);
             if (_showKeyboardOnStart)
@@ -75,12 +91,20 @@ namespace MagicLeap.XRKeyboard
 
         public virtual Keyboard ShowKeyboard(TMPInputFieldTextReceiver inputFieldReceiver, TMP_InputField.ContentType contentType)
         {
+        
             if (_followTarget)
             {
                 _lookAtUser = false;
                 _followTarget.enabled = true;
                 _followTarget.Recenter();
             }
+            DelayCall(.16f, () =>
+                            {
+                                for (var i = 0; i < _colliders.Length; i++)
+                                {
+                                    _colliders[i].enabled = true;
+                                }
+                            });
 
             _keyboard.SetKeyboard(inputFieldReceiver, contentType);
             _keyboardActive = true;
@@ -92,6 +116,11 @@ namespace MagicLeap.XRKeyboard
         {
             if (_keyboardActive)
             {
+                for (var i = 0; i < _colliders.Length; i++)
+                {
+                    _colliders[i].enabled = false;
+                }
+
                 _keyboardActive = false;
                 if(_keyboard && _keyboard.gameObject)
                 {
