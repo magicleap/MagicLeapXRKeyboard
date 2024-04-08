@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MagicLeap.XRKeyboard.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace MagicLeap.Common
+namespace MagicLeap.XRKeyboard.Utilities
 {
    public class MoveHandle : MonoBehaviour
    {

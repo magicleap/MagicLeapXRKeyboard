@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace MagicLeap.Common
+namespace MagicLeap.XRKeyboard.Extensions
 {
 	public static class XRInteractionExtensions
 	{
