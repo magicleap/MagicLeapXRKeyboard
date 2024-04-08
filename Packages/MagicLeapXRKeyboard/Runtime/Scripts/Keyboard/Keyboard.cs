@@ -45,13 +45,16 @@ namespace MagicLeap.XRKeyboard
         private TMP_InputField.ContentType _contentType = TMP_InputField.ContentType.Standard;
         private TMPInputFieldTextReceiver _inputFieldReceiver;
         private RectTransform _hideButtonRectTransform;
-
+        public TMP_InputField CurrentInputField { get; private set; }
 
         void Awake()
         {
             _popupPanel = transform.GetCachedComponentInChildren(ref _popupPanel, true);
             _inputPreview = transform.GetCachedComponentInChildren(ref _inputPreview, true);
-            _hideButtonRectTransform = _hideButton.GetComponentInChildren<RectTransform>(true);
+            if (_hideButton)
+            {
+                _hideButtonRectTransform = _hideButton.GetComponentInChildren<RectTransform>(true);
+            }
         }
 
         void Start()
@@ -79,8 +82,11 @@ namespace MagicLeap.XRKeyboard
             }
 
             _popupPanel.OnKeysCreated.AddListener(OnPopupKeysCreated);
-            _hideButton.onClick.AddListener(EndEdit);
-       
+            if (_hideButton)
+            {
+                _hideButton.onClick.AddListener(EndEdit);
+            }
+
         }
 
         private void OnPopupKeysCreated(KeyboardKey[] keys)
@@ -134,9 +140,17 @@ namespace MagicLeap.XRKeyboard
             KeyboardManager.Instance.DespawnKeyboard();
         }
 
-   
-        
-        
+        private void OnDisable()
+        {
+            if (_inputFieldReceiver != null)
+            {
+                _inputFieldReceiver.EndEdit();
+            }
+
+            CurrentInputField = null;
+            _inputFieldReceiver = null;
+        }
+
 
         private void OnEnable()
         {
@@ -155,6 +169,11 @@ namespace MagicLeap.XRKeyboard
             {
                 _inputFieldReceiver = inputField;
                 _inputPreview.SetTargetInputField(inputField.GetInputField());
+                CurrentInputField = inputField.GetInputField();
+            }
+            else
+            {
+                CurrentInputField = null;
             }
 
             _contentType = contentType;
@@ -162,6 +181,8 @@ namespace MagicLeap.XRKeyboard
             {
                 UpdateContentType();
             }
+
+
         }
 
 
@@ -320,18 +341,17 @@ namespace MagicLeap.XRKeyboard
                 HideAllKeyboardLayouts();
                 panel.ShowPanel();
                 _inputPreview.SetParent(panel.KeyboardContainer().parent);
-                
-                //Shift Hide Button to edge of panel
-                _hideButtonRectTransform.anchoredPosition = new Vector2(panel.GetRectTransform().offsetMax.x + (_hideButtonRectTransform.sizeDelta.x / 1.7f), -(panel.GetRectTransform().sizeDelta.y / 4.4f));
+                if (_hideButtonRectTransform)
+                {
+                    //Shift Hide Button to edge of panel
+                    _hideButtonRectTransform.anchoredPosition = new Vector2(panel.GetRectTransform().offsetMax.x + (_hideButtonRectTransform.sizeDelta.x / 1.7f), -(panel.GetRectTransform().sizeDelta.y / 4.4f));
+                }
             }
             else
             {
                 Debug.LogError($"Layout [{layoutId}] does not exist");
             }
         }
-
-      
- 
 
 
 
@@ -352,8 +372,6 @@ namespace MagicLeap.XRKeyboard
             }
         }
  
-
-
 
         public void ShowAccentOverlay(List<string> specialChars, Transform keyTransform = null)
         {

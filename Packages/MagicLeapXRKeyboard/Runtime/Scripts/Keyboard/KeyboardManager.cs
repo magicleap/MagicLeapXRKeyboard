@@ -19,6 +19,7 @@ namespace MagicLeap.XRKeyboard
         [SerializeField] private bool _showKeyboardOnStart = false;
         [SerializeField] private FollowUser _followUser;
         [SerializeField] private Keyboard _keyboard;
+        public TMP_InputField CurrentInputField => _keyboard.CurrentInputField;
         private bool _keyboardActive = false;
         private Collider[] _colliders;
         private void Awake()
@@ -89,7 +90,7 @@ namespace MagicLeap.XRKeyboard
                                     }
                                 }
                             });
-
+    
             _keyboard.SetKeyboard(inputFieldReceiver, contentType);
             _keyboardActive = true;
             _keyboard.gameObject.SetActive(_keyboardActive);

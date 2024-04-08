@@ -20,7 +20,6 @@ namespace MagicLeap.XRKeyboard.Component
         private Keyboard _keyboard;
         private bool _editing;
         private bool _onFocusSelectAll;
-
         private void Start()
         {
             _textMeshInputField = transform.GetCachedComponentInChildren(ref _textMeshInputField);
