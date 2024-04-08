@@ -12,7 +12,7 @@ namespace MagicLeap.XRKeyboard.Utilities
     /// The element can be loosely constrained (a.k.a. tag-along) so that it doesn't follow until the tracked target moves
     /// beyond user defined bounds.
     /// </remarks>
-    public class FollowTarget : MonoBehaviour
+    public class FollowUser : MonoBehaviour
     {
 
         public enum SolverOrientationType

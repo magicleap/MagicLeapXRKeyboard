@@ -7520,14 +7520,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: {fileID: 5327930719521145995}
-  _items:
+  _defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  _highlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _colliders:
+  - {fileID: 5690721139768202571}
+  - {fileID: 3561038473472920523}
+  - {fileID: 3514401217765640215}
+  - {fileID: 5869232147212987919}
+  _images:
   - {fileID: 6049706485822513381}
   - {fileID: 4959057895416919607}
   - {fileID: 2719002718015928988}
   - {fileID: 3632992243720600998}
-  _defaultColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
-  _highlightColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
-  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _lookAtOnGrab: 1
+  _renderers: []
+  _shaderKeyWords:
+  - _Color
+  - _BaseColor
+  - _Tint
+  - _TintColor
 --- !u!1 &695284128337870412
 GameObject:
   m_ObjectHideFlags: 0
@@ -7971,14 +7983,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: {fileID: 5327930719521145995}
-  _items:
+  _defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  _highlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _colliders:
+  - {fileID: 3723318688691884910}
+  - {fileID: 5141248915124420315}
+  - {fileID: 190386317054018025}
+  - {fileID: 4843964772272843639}
+  _images:
   - {fileID: 1581551910016091062}
   - {fileID: 2408798289188704081}
   - {fileID: 6743699051731862422}
   - {fileID: 7147254616648322749}
-  _defaultColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
-  _highlightColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
-  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _lookAtOnGrab: 1
+  _renderers: []
+  _shaderKeyWords:
+  - _Color
+  - _BaseColor
+  - _Tint
+  - _TintColor
 --- !u!1 &736874737746402783
 GameObject:
   m_ObjectHideFlags: 0
@@ -15812,7 +15836,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1492610212607362506}
   - component: {fileID: 1492610212607362507}
-  - component: {fileID: 4055410605370200056}
+  - component: {fileID: 6711352882706535753}
   - component: {fileID: 449032516322553641}
   - component: {fileID: 5327930719521145995}
   - component: {fileID: 1752360284161244768}
@@ -15852,9 +15876,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showKeyboardOnStart: 0
-  _followTarget: {fileID: 4055410605370200056}
+  _followUser: {fileID: 6711352882706535753}
   _keyboard: {fileID: 64922507471676018}
---- !u!114 &4055410605370200056
+--- !u!114 &6711352882706535753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15863,10 +15887,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492610212607362508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa48c7c24068624aabe62c7bc60f806, type: 3}
+  m_Script: {fileID: 11500000, guid: 919842e9cdaf42f4f910475beaaa7418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _orientationType: 1
+  _orientationType: 0
   _minDistance: 0.51
   _moveLerpTime: 0.5
   _smoothing: 1
@@ -15921,23 +15945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders:
-  - {fileID: 1220949346423123661}
-  - {fileID: 9061354661192945472}
-  - {fileID: 1650285364154425595}
-  - {fileID: 7504050858298649038}
-  - {fileID: 5690721139768202571}
-  - {fileID: 3561038473472920523}
-  - {fileID: 3514401217765640215}
-  - {fileID: 5869232147212987919}
-  - {fileID: 6809751109184862192}
-  - {fileID: 1827504020391142970}
-  - {fileID: 6404264393912596019}
-  - {fileID: 3117349821842734703}
-  - {fileID: 3723318688691884910}
-  - {fileID: 5141248915124420315}
-  - {fileID: 190386317054018025}
-  - {fileID: 4843964772272843639}
+  m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -15987,33 +15995,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1492610212607362507}
-        m_TargetAssemblyTypeName: MagicLeap.XRKeyboard.KeyboardManager, com.magicleap.xrkeyboard
-        m_MethodName: LookAtUser
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1492610212607362507}
-        m_TargetAssemblyTypeName: MagicLeap.XRKeyboard.KeyboardManager, com.magicleap.xrkeyboard
-        m_MethodName: LookAtUser
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -16028,46 +16012,10 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1492610212607362507}
-        m_TargetAssemblyTypeName: MagicLeap.XRKeyboard.KeyboardManager, com.magicleap.xrkeyboard
-        m_MethodName: ToggleFollow
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1492610212607362507}
-        m_TargetAssemblyTypeName: MagicLeap.XRKeyboard.KeyboardManager, com.magicleap.xrkeyboard
-        m_MethodName: LookAtUser
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1492610212607362507}
-        m_TargetAssemblyTypeName: MagicLeap.XRKeyboard.KeyboardManager, com.magicleap.xrkeyboard
-        m_MethodName: LookAtUser
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -26663,14 +26611,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: {fileID: 5327930719521145995}
-  _items:
+  _defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  _highlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _colliders:
+  - {fileID: 1220949346423123661}
+  - {fileID: 9061354661192945472}
+  - {fileID: 1650285364154425595}
+  - {fileID: 7504050858298649038}
+  _images:
   - {fileID: 7296297654928892607}
   - {fileID: 2454389585782389733}
   - {fileID: 1350051007212318844}
   - {fileID: 4170358187336594422}
-  _defaultColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
-  _highlightColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
-  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _lookAtOnGrab: 1
+  _renderers: []
+  _shaderKeyWords:
+  - _Color
+  - _BaseColor
+  - _Tint
+  - _TintColor
 --- !u!1 &2393308535278443540
 GameObject:
   m_ObjectHideFlags: 0
@@ -31284,14 +31244,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: {fileID: 5327930719521145995}
-  _items:
+  _defaultColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+  _highlightColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _colliders:
+  - {fileID: 6809751109184862192}
+  - {fileID: 1827504020391142970}
+  - {fileID: 6404264393912596019}
+  - {fileID: 3117349821842734703}
+  _images:
   - {fileID: 3178978475531038016}
   - {fileID: 3913708873106058011}
   - {fileID: 1926004594355836935}
   - {fileID: 3606254715279779327}
-  _defaultColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
-  _highlightColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
-  _selectColor: {r: 1, g: 1, b: 1, a: 1}
+  _lookAtOnGrab: 1
+  _renderers: []
+  _shaderKeyWords:
+  - _Color
+  - _BaseColor
+  - _Tint
+  - _TintColor
 --- !u!1 &2785503493595546431
 GameObject:
   m_ObjectHideFlags: 0
@@ -52665,7 +52637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -65738,7 +65710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -76210,7 +76182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -92816,7 +92788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+  m_Color: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

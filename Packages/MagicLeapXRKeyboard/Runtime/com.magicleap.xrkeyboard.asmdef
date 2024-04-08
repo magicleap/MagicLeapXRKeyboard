@@ -17,6 +17,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.magicleap.unitysdk",
+            "expression": "",
+            "define": "MAGICLEAP"
+        }
+    ],
     "noEngineReferences": false
 }
