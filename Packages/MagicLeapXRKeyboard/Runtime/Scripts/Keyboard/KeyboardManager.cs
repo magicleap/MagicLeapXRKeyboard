@@ -53,7 +53,7 @@ namespace MagicLeap.XRKeyboard
             _followUser = transform.GetCachedComponentInChildren(ref _followUser, true);
             if (_showKeyboardOnStart)
             {
-                ShowKeyboard(null, TMP_InputField.ContentType.Alphanumeric);
+                ShowKeyboard(null, TMP_InputField.ContentType.Alphanumeric, TouchScreenKeyboardType.Default);
             }
             else
             {
@@ -71,7 +71,7 @@ namespace MagicLeap.XRKeyboard
         }
 
 
-        public virtual Keyboard ShowKeyboard(TMPInputFieldTextReceiver inputFieldReceiver, TMP_InputField.ContentType contentType)
+        public virtual Keyboard ShowKeyboard(TMPInputFieldTextReceiver inputFieldReceiver, TMP_InputField.ContentType contentType, TouchScreenKeyboardType keyboardType)
         {
         
             if (_followUser)
@@ -91,7 +91,7 @@ namespace MagicLeap.XRKeyboard
                                 }
                             });
     
-            _keyboard.SetKeyboard(inputFieldReceiver, contentType);
+            _keyboard.SetKeyboard(inputFieldReceiver, contentType, keyboardType);
             _keyboardActive = true;
             _keyboard.gameObject.SetActive(_keyboardActive);
             return _keyboard;

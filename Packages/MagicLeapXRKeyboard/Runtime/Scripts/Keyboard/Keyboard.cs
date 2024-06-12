@@ -43,6 +43,7 @@ namespace MagicLeap.XRKeyboard
 
         private KeyboardLayout[] _panels;
         private TMP_InputField.ContentType _contentType = TMP_InputField.ContentType.Standard;
+        private TouchScreenKeyboardType _keyboardType = TouchScreenKeyboardType.Default;
         private TMPInputFieldTextReceiver _inputFieldReceiver;
         private RectTransform _hideButtonRectTransform;
         public TMP_InputField CurrentInputField { get; private set; }
@@ -157,7 +158,7 @@ namespace MagicLeap.XRKeyboard
             UpdateContentType();
         }
 
-        public void SetKeyboard(TMPInputFieldTextReceiver inputField, TMP_InputField.ContentType contentType)
+        public void SetKeyboard(TMPInputFieldTextReceiver inputField, TMP_InputField.ContentType contentType, TouchScreenKeyboardType keyboardType)
         {
             gameObject.SetActive(true);
             if (_inputFieldReceiver!= null && _inputFieldReceiver != inputField)
@@ -176,6 +177,7 @@ namespace MagicLeap.XRKeyboard
                 CurrentInputField = null;
             }
 
+            _keyboardType = keyboardType;
             _contentType = contentType;
             if (gameObject.activeSelf)
             {
@@ -225,10 +227,68 @@ namespace MagicLeap.XRKeyboard
                     SetModifier(Modifier.NEUTRAL);
                     break;
                 case TMP_InputField.ContentType.Custom:
+                    UpdateBasedOnKeyboardTime();
+                    break;
+
+            }
+        }
+
+        private void UpdateBasedOnKeyboardTime()
+        {
+            switch (_keyboardType)
+            {
+                case TouchScreenKeyboardType.Default:
                     ChangeLayout("Letters");
                     SetModifier(Modifier.NEUTRAL);
                     break;
-
+                case TouchScreenKeyboardType.ASCIICapable:
+                    ChangeLayout("Letters");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.NumbersAndPunctuation:
+                    ChangeLayout("NumberPad");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.URL:
+                    ChangeLayout("Letters");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.NumberPad:
+                    ChangeLayout("NumberPad");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.PhonePad:
+                    ChangeLayout("NumberPad");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.NamePhonePad:
+                    ChangeLayout("NumberPad");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.EmailAddress:
+                    ChangeLayout("Letters");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.Social:
+                    ChangeLayout("Letters");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.Search:
+                    ChangeLayout("Letters");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.DecimalPad:
+                    ChangeLayout("NumberPad");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                case TouchScreenKeyboardType.OneTimeCode:
+                    ChangeLayout("NumberPad");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
+                default:
+                    ChangeLayout("Letters");
+                    SetModifier(Modifier.NEUTRAL);
+                    break;
             }
         }
      
