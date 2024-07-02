@@ -58,7 +58,8 @@ namespace MagicLeap.XRKeyboard.Component
         {
             if (_keyboard == null && _editing==false)
             {
-                _keyboard = KeyboardManager.Instance.ShowKeyboard(this, _textMeshInputField.contentType);
+                
+                _keyboard = KeyboardManager.Instance.ShowKeyboard(this, _textMeshInputField.contentType,_textMeshInputField.keyboardType);
 
                 _keyboard.OnKeyUp += HandleKeyPress;
               
