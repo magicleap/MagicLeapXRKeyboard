@@ -1,3 +1,6 @@
+> [!CAUTION]  
+> This project is deprecated. Developers are encouraged to use the Keyboard Sample from the Unity XR Interaction Toolkit instead.
+
 # Magic Leap XR Keyboard
 A keyboard that can be used in any project that supports Unity's XR Interaction Toolkit. Demo scene can be found in `Assets/MagicLeap/Runtime/KeyboardExample/Scenes/XRKeyboardExample.unity`
 
